@@ -8,7 +8,16 @@ Everything here is dirty and chipped to bits in order to barely get it working.
 Expect nothing short of quick hacks, memory errors and segmentation faults
 if anything unexpected happens.
 
-The output is currently written to STARTUP.DAT, NOTCH.DAT and NETNOTCH.DAT
+# Usage
+
+This tool takes one argument, which is the source PPM image to convert.
+
+```hexstartup ~/path/to/file.ppm```
+
+The input file must be reduced to 16 colors, at a size of exactly 640x480
+for the STARTUP screen, 16x23 for NOTCH, and 4x16 for NETNOTCH.
+
+The output is currently written to STARTUP.DAT, NOTCH.DAT or NETNOTCH.DAT
 in the working directory; this is coded in and cannot be changed on the fly
 currently. It's planned to add better argument handling and multiple file
 conversion (e.g., all three lumps) in the future, but it works enough for
@@ -17,15 +26,6 @@ me, for now.
 The output files are WAD format LUMPs, and can be integrated to a WAD
 using tools such as SLADE or DEUTEX, or a number of WAD packers/unpackers,
 DOOM editors, and integrated mapping environments.
-
-# Usage
-
-This tool takes one argument, which is the source PPM image to convert.
-
-```hexstartup ~/path/to/file.ppm```
-
-The file must be reduced to 16 colors, at a size of exactly 640x480 for
-the STARTUP screen, 16x23 for NOTCH, and 4x16 for NETNOTCH.
 
 # Building
 
