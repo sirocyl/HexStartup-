@@ -6,7 +6,16 @@ network loading bar, respectively.
 
 Everything here is dirty and chipped to bits in order to barely get it working.
 Expect nothing short of quick hacks, memory errors and segmentation faults
-if anything unexpected happens.
+if anything unexpected happens. It is only just minimally tested and Works On
+My Machine™. Do not feed it edge cases.
+
+This tool has fewer features than its predecessor,
+[HexStartup++](https://github.com/ibm5155/HexStartup-)
+and that is a *good thing.*
+
+PNG support may come back at a later date, but if you must have a more 
+common image format to work with, feel free to use the ImageMagick `convert`
+command, or export it from GIMP.
 
 # Usage
 
@@ -35,14 +44,6 @@ No fancy makefile or cmake yet. Just run
 
 There shouldn't be any GNUisms in there - feel free to substitute your favorite
 compiler/linker.
-
-This tool has fewer features than its predecessor,
-[HexStartup++](https://github.com/ibm5155/HexStartup-)
-and that is a *good thing.*
-
-PNG support may come back at a later date, but if you must have a more 
-common image format to work with, feel free to use the ImageMagick `convert`
-command, or export it from GIMP.
 
 # File format info
 
