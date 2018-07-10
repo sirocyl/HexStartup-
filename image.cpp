@@ -7,7 +7,7 @@
 #include "pixel.h"
 
 ImageFormat PATH_GetType(char *PATH) {
-	ImageFormat _return= TYPE_UNSUPPORTED;
+	ImageFormat _return = TYPE_UNSUPPORTED;
 	int i;
 	i = strlen(PATH);
 // eww.
@@ -61,11 +61,15 @@ Image *Image_Load(char* PATH) {
 					Img->Type = Type;
 				}
 			break;
-/*		case TYPE_PNG:
-			Img = PNG_read_file(PATH);
-			Img->Loaded = true;
-			Img->Type = Type;
-			break; */
+			case TYPE_UNSUPPORTED:
+				fprintf(stderr, "ILO01 ERR: FATAL: File type unsupported.\n");
+				exit(1);
+				break; //shouldn't be reached
+/*			case TYPE_PNG:
+				Img = PNG_read_file(PATH);
+				Img->Loaded = true;
+				Img->Type = Type;
+				break; */
 		}
 	}
 	return Img;
