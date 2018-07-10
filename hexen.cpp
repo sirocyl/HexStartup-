@@ -2,10 +2,9 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "image.h"
-//#include <MT2D/MessageBox/MT2D_MessageBox.h>
 #include <vector>
-
-extern char str_buffer[200];
+#include <errno.h>
+#include <string.h>
 
 ImageFormat Hexen_GetImageType(unsigned int Width, unsigned int Height) {
 	ImageFormat _return = TYPE_UNSUPPORTED;
@@ -81,8 +80,7 @@ Image *Image_Create_IndexedHexenGraphic(Image *image, Pixel *palette) {
 void Save_HexenPlanarLump(char *PATH, Image *HexenLump) {
 	FILE *f = fopen(PATH, "wb");
 	if (!f) {
-//		sprintf(str_buffer, "When trying to create the file %s:Error: %d (%s)", PATH, errno, strerror(errno));
-//		MT2D_MessageBox(str_buffer);
+		fprintf(stderr, "SHPL1 ERR: FATAL: Error %d opening file %s (%s)\n", errno, PATH, strerror(errno));
 		return;
 	}
 	int x0, y0, PlanarSize;

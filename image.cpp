@@ -1,20 +1,16 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 #include "image.h"
-//#include "_png.h"
 #include "ppm.h"
 #include "hexen.h"
 #include "pixel.h"
-//#include <MT2D/MessageBox/MT2D_MessageBox.h>
-//#include <MT2D/MT2D_Display.h>
-//#include <MT2D/MT2D.h>
-
-extern char str_buffer[200];
 
 ImageFormat PATH_GetType(char *PATH) {
 	ImageFormat _return= TYPE_UNSUPPORTED;
 	int i;
 	i = strlen(PATH);
+// eww.
 	if (i > 3) {
 		if (PATH[i - 3] == 'P' || PATH[i - 3] == 'p') {
 			if (PATH[i - 2] == 'P' || PATH[i - 2] == 'p') {
@@ -104,7 +100,7 @@ void Image_GetPixel(Image *img, unsigned int X, unsigned int Y, Pixel *p) {
 		break;
 /*	case TYPE_PNG:
 		PNG_Get_Pixel(img, X, Y,p); */
-	} 
+	}
 }
 
 void Image_GetPixel(Image *img,int offset,Pixel *p) {
@@ -142,6 +138,7 @@ Pixel *Image_GetPalette(Image *image, int paletteLength) {
 	}
 	int disp_pos = 8;
 ///	insert_string_on_display("INDEX  R   ,G    ,B", 7, 10, DISPLAY_WINDOW1);
+	fprintf(stdout, "IGP01 INF: INDEX  R    G     B\n");
 	for (i = 0; i < ImgLength; i++) {
 		for (j = 0; j < paletteLength; j++) {
 			Image_GetPixel(image, i,tmp);
@@ -155,18 +152,14 @@ Pixel *Image_GetPalette(Image *image, int paletteLength) {
 				palette[j].green = tmp->green;
 				palette[j].blue = tmp->blue;
 				palette_started[j] = true;
-				/*MT2D STUFF*/
-//				sprintf(str_buffer, "%2d    %3d  ,%3d  ,%3d", j, palette[j].red, palette[j].green, palette[j].blue);
-//				insert_string_on_display(str_buffer, disp_pos, 10, DISPLAY_WINDOW1);
-//				disp_pos++;
-//				MT2D_Draw_Window(DISPLAY_WINDOW1);
-				/*=========*/
+				fprintf(stdout, "IGP01 INF: %2d    %3d   %3d   %3d\n", j, palette[j].red, palette[j].green, palette[j].blue);
 				break;
 			}
 		}
 		if (j == 16) {
 //			sprintf(str_buffer, "ERROR:this image has more than 16 colors, you can fix that with the  gimp software... More info here:https://docs.gimp.org/en/gimp-image-convert-indexed.html");
 //			MT2D_MessageBox(str_buffer);
+			fprintf(stderr, "IGP01 ERR: FATAL: Image has > 16 colors.\n");
 			free(tmp);
 			return 0;
 		}
