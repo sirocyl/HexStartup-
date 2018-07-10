@@ -22,7 +22,7 @@ struct Image {
 
 Image *Image_CreateBlank();
 Image *Image_Load(char*PATH);
-bool Image_Save(Image *img,char *PATH);
+bool Image_Save(Image *img, char *PATH);
 void Image_GetPixel(Image *img, unsigned int X, unsigned int Y, Pixel *p);
 void Image_GetPixel(Image *img, int offset, Pixel *p);
 Pixel *Image_GetPalette(Image *image, int paletteLength);
