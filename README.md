@@ -40,7 +40,7 @@ DOOM editors, and integrated mapping environments.
 
 No fancy makefile or cmake yet. Just run
 
-```g++ -I./ -o hexstartup ./hexen.cpp image.cpp _png.cpp ppm.cpp source.cpp```
+```g++ -o hexstartup ./hexen.cpp image.cpp ppm.cpp source.cpp```
 
 There shouldn't be any GNUisms in there - feel free to substitute your favorite
 compiler/linker.
