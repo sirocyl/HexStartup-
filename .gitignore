@@ -240,6 +240,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
 /xterr1prev.jpg
 /war2intro.ppm
 /test2.ppm
@@ -260,3 +261,4 @@ ModelManifest.xml
 /FixMyHexenStartupColor.vcxproj
 /DOOM-760x428.png
 /Doom-1-.gif
+./hexstartup
