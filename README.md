@@ -30,7 +30,9 @@ the STARTUP screen, 16x23 for NOTCH, and 4x16 for NETNOTCH.
 # Building
 
 No fancy makefile or cmake yet. Just run
-```g++ -I./ -o hextartup ./hexen.cpp image.cpp _png.cpp ppm.cpp source.cpp```
+
+```g++ -I./ -o hexstartup ./hexen.cpp image.cpp _png.cpp ppm.cpp source.cpp```
+
 There shouldn't be any GNUisms in there - feel free to substitute your favorite
 compiler/linker.
 
